@@ -24,7 +24,7 @@ char *get_args(char *line, int *exe_ret)
 {
 	size_t n = 0;
 	ssize_t read;
-	char *prompt = "$ ";
+	char *prompt = "#cisfun$ ";
 
 	if (line)
 		free(line);
@@ -36,7 +36,7 @@ char *get_args(char *line, int *exe_ret)
 	{
 		hist++;
 		if (isatty(STDIN_FILENO))
-			write(STDOUT_FILENO, prompt, 2);
+			write(STDOUT_FILENO, prompt, 9);
 		return (get_args(line, exe_ret));
 	}
 
