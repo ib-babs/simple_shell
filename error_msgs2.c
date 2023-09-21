@@ -60,7 +60,7 @@ char *error_127(char **args)
 	if (!hist_str)
 		return (NULL);
 
-	len = _strlen(name) + _strlen(hist_str) + _strlen(args[0]) + 32;
+	len = _strlen(name) + _strlen(hist_str) + _strlen(args[0]) + 16;
 	error = malloc(sizeof(char) * (len + 1));
 	if (!error)
 	{
@@ -69,11 +69,11 @@ char *error_127(char **args)
 	}
 
 	_strcpy(error, name);
-	/* _strcat(error, ": "); */
-	/* _strcat(error, hist_str); */
-	/* _strcat(error, ": "); */
-	/* _strcat(error, args[0]); */
-	_strcat(error, ": No such file or directory\n");
+	_strcat(error, ": ");
+	_strcat(error, hist_str);
+	_strcat(error, ": ");
+	_strcat(error, args[0]);
+	_strcat(error, ": not found\n");
 
 	free(hist_str);
 	return (error);
